@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Kiwi+Maru:wght@300;400;500&display=swap">
+</head>
+
+<body>
+<header>
+		<!--スマートフォン-->
+		<nav class="menu">
+			<div class="logo">
+				<a href="#"><img th:src="@{/images/logo.png}" alt=""></a>
+			</div>
+			<div class="menu-contents">
+				<div class="menu-inner">
+					<ul>
+
+						<li class="menu__item"><a th:href="@{/admin/category/all}">カテゴリ一覧</a></li>
+						<li class="menu__item"><a th:href="@{/admin/blog/all}">投稿記事一覧</a></li>
+						<li class="menu__item"><form th:action="@{/logout}" method="post"><a href="#" onclick="this.parentNode.submit()">ログアウト</a></form></li>
+
+					</ul>
+				</div>
+				<div class="menu-toggle_btn">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</nav>
+		<!--pc-->
+		<nav class="pc">
+			<div class="pc-inner">
+				<div class="pc-logo">
+					<a href=""><img th:src="@{/images/logo.png}" alt=""></a>
+				</div>
+				<ul class="pc-list">
+					<li class="pc-list__item"><a th:href="@{/admin/category/all}">カテゴリ一覧</a></li>
+					<li class="pc-list__item"><a th:href="@{/admin/blog/all}">投稿記事一覧</a></li>
+					<li class="pc-list__item"><form th:action="@{/logout}" method="post"><a href="#" onclick="this.parentNode.submit()">ログアウト</a></form></li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<div class="main-inner">
+			<section class="all-view-section">
+				<h2>記事一覧</h2>
+				<div class="all-view-register__button">
+					<a th:href="@{/admin/blog/register}" class="btn btn--orange btn--radius">記事登録</a>
+				</div>
+				<div class="all-view__flex">
+
+					<div class="all-view-article" th:each="blog:${blogList}">
+						<!--<a th:href="@{/blogDetail/{blogId}(blogId=${blog.blogId})}" class="all-view-colum">-->
+						<a th:href="'/admin/blog/edit/'+${blog.blogId}" class="all-view-colum">
+							<div class="all-view__category">
+								<p th:text=" ${blog.categoryName}">
+								</p>
+							</div>
+							<img th:src="@{/blog-image/{items}(items=${blog.blogImage})}">
+						</a>
+						<div class="colum__box" th:text=" ${blog.blogTitle}">
+
+						</div>
+					</div>
+
+				</div>
+			</section>
+		</div>
+	</main>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script th:src="@{/js/common.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+@media screen and (min-width: 760px) {
+  .pc {
+    display: block;
+  }
+
+  .header__nav .flex__item {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .nav__list {
+    color: #594A4E;
+    font-weight: bold;
+    margin-left: 50px;
+  }
+
+  .nav__list:first-child {
+    margin-left: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+
+  .article-wrap {
+    width: 65%;
+    border-bottom: 0;
+  }
+
+  .sidebar {
+    width: 30%;
+    margin-top: 0;
+  }
+
+  .media-firstview {
+    background: url(../images/background.jpg) no-repeat;
+    background-size: cover;
+    height: 400px;
+  }
+
+  .media__fv-ttl {
+    font-size: 60px;
+  }
+
+  .article__card {
+    width: 30%;
+    margin: 30px 0 0;
+  }
+
+  .article__card:nth-child(-n + 3) {
+    margin-top: 0;
+  }
+
+  /* カテゴリーページ */
+  .category-firstview {
+    height: 200px;
+  }
+
+  /* singleページ */
+
+  .single__container h1 {
+    font-size: 32px;
+  }
+  .article__content h2 {
+    font-size: 26px;
+  }
+  .article__content h3 {
+    font-size: 22px;
+  }
+  .article__content h4 {
+    font-size: 20px;
+  }
+}

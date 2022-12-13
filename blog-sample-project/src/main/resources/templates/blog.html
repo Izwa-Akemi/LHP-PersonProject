@@ -1,0 +1,73 @@
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/blog_style.css}">
+	<link rel="stylesheet" th:href="@{/css/pc_style.css}">
+</head>
+
+<body>
+	<header class="media__header">
+		<div class="header__logo">
+			<a th:href="@{/blog/}">
+				<img th:src="@{\images\logo.png}">
+			</a>
+		</div>
+		<nav class="header__nav pc">
+			<ul class="flex__item">
+				<li class="nav__list" th:each="category : ${categoryList}">
+					<a th:href="@{/blog/category/list/{categoryName}(categoryName=${category.categoryName})}"
+						class="nav__link" 　th:text="${category.categoryName}"></a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+
+		<div class="media-firstview">
+			<h1 class="media__fv-ttl">Commit to the growth<br>for everyone</h1>
+		</div>
+
+		<div class="container">
+			<p class="newpost__sub-ttl">New Post</p>
+			<h2 class="newpost__ttl">記事一覧</h2>
+			<div class="flex__item">
+				<div class="article-wrap">
+					<div class="flex__item">
+						<a class="article__card" th:href="@{/blog/detail/{blogId}(blogId=${blog.blogId})}"
+							th:each="blog:${blogList}">
+							<div class="article__card-eyecatch">
+								<img th:src="@{/blog-image/{items}(items=${blog.blogImage})}">
+							</div>
+							<span class="article__card-cat" th:text=" ${blog.categoryName}">
+							</span>
+
+							<div class="article__card-content">
+								<h3 class="article__card-content-ttl" th:text=" ${blog.blogTitle}"></h3>
+							</div>
+						</a>
+					</div>
+				</div>
+				<aside class="sidebar">
+					<div class="category">
+						<h2 class="category__ttl">Category</h2>
+						<ul>
+							<li class="category__list" th:each="category : ${categoryList}"><a
+									th:href="@{/blog/category/list/{categoryName}(categoryName=${category.categoryName})}"
+									class="category__link" 　th:text="${category.categoryName}"></a></li>
+						</ul>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</main>
+	<footer class="footer">
+		<p>Copyright © 2022 izawa-Sample All Rights Reserved.</p>
+	</footer>
+</body>
+
+</html>

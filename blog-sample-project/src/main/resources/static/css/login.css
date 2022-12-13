@@ -1,0 +1,143 @@
+
+
+/*---------------------------------------------
+    　　スマートフォン（ヘッダー）
+-----------------------------------------------*/
+.pc{
+    display: none;
+}
+.sp{
+    background-color: #71c7c8 ;
+    padding:1rem;
+}
+
+/*-----------------------------------------------
+              メイン
+------------------------------------------------*/
+section{
+    width:90%;
+    margin: 5rem auto;
+}
+
+section h2{
+    font-size:1.5rem;
+    font-weight:bold;
+    text-align: center;
+    color: #2db3b5 ;
+    line-height: 2rem;
+}
+
+table{ 
+    margin:1rem auto;
+}
+th{
+    font-size: 1rem;
+    text-align:left;
+    padding:0.6rem;
+}
+td{
+    padding:1rem;
+    font-size: 1rem;
+    text-align:right;
+    box-sizing: border-box;
+}
+input{
+    height:1.3rem;
+}
+.login-pass{
+    position: relative;
+}
+.login-pass img{
+    width:16px;
+    position: absolute;
+    right:20px;
+    top:20px;
+}
+.submit-button{
+    text-align: center;
+    margin:1.5rem auto;
+}
+
+.btn_disable{
+    background-color: #c2c5c5 ;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: 1px solid #798081 ;
+    font-weight:bold;
+}
+.active_btn{
+    background-color: #71c7c8 ;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: 1px solid #53c0c2 ;
+    font-weight:bold;
+}
+
+@media screen and (min-width: 768px) {
+  /*---------------------------------------------
+    　　PC（ヘッダー）
+-----------------------------------------------*/  
+.sp{
+    display: none;
+}
+.pc{
+    display:block;
+    background-color: #b2dbdc ;
+    padding:1rem;
+}
+.pc-nav{
+    display: flex;
+    justify-content:space-between;
+    padding:0rem 3rem;
+}
+.pc-nav-right{
+    display: flex;
+    vertical-align: middle;
+    justify-content:center;
+    align-items:center;
+    gap: 0 1.5rem;
+}
+
+/*-----------------------------------------------
+              メイン
+------------------------------------------------*/
+section h2{
+    font-size:2rem;
+    margin-bottom:1.5rem;
+}
+
+h2 br{
+    display:none;
+}
+
+th{
+    font-size: 1.3rem;
+    text-align:left;
+    padding:1rem;
+}
+td{
+    font-size: 1.3rem;
+}
+input{
+    height:1.5rem;
+    width:15rem;
+}
+
+.login-pass img{
+    right:25px;
+    top:22px;
+}
+.submit-button{
+    text-align: center;
+    margin:1.5rem auto;
+}
+
+.btn_disable{
+
+    padding: 0.8rem 2rem;
+  
+}
+.active_btn{
+    padding: 0.8rem 2rem;
+}
+}

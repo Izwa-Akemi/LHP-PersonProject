@@ -1,0 +1,624 @@
+/*========= 共通設定CSS ===============*/
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+main {
+    margin-top: 6rem;
+}
+
+
+/*========= ヘッダーのCSS ===============*/
+header {
+    background-color: rgba(255, 255, 255, .7);
+    height: 6rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    border-bottom: 1px solid black;
+}
+
+/*ヘッダーの幅を綺麗にそろえるために要素の大きさを均一にする*/
+.logo, .menu-contents {
+    width: 4rem;
+}
+
+.pc {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+}
+
+.logo img {
+    width: 8rem;
+    height: 1.6rem;
+}
+
+/*ボタン外側*/
+.menu-toggle_btn {
+    position: relative;
+    /*ボタン内側の基点となるためrelativeを指定*/
+
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+}
+
+/*ボタン内側*/
+.menu-toggle_btn span {
+    display: inline-block;
+    transition: all .4s;
+    /*アニメーションの設定*/
+    position: absolute;
+    left: 1rem;
+    height: 3px;
+    border-radius: 2px;
+    background: #EC6015;
+    width: 45%;
+}
+
+.menu-toggle_btn span:nth-of-type(1) {
+    top: 1.5rem;
+}
+
+.menu-toggle_btn span:nth-of-type(2) {
+    top: 2rem;
+}
+
+.menu-toggle_btn span:nth-of-type(3) {
+    top: 2.5rem;
+}
+
+/*activeクラスが付与されると線が回転して×に*/
+
+.menu-toggle_btn.active span:nth-of-type(1) {
+    top: 1.5rem;
+    left: 1.5rem;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+    z-index: 1;
+}
+
+.menu-toggle_btn.active span:nth-of-type(2) {
+    opacity: 0;
+    /*真ん中の線は透過*/
+    z-index: 1;
+}
+
+.menu-toggle_btn.active span:nth-of-type(3) {
+    top: 2.25rem;
+    left: 1.5rem;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+    z-index: 1;
+}
+
+
+/*----------------------------
+* メニュー本体
+*----------------------------*/
+.menu-inner {
+    display: none;
+}
+
+.menu-inner.active {
+    position: fixed;
+    top: 6rem;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    z-index: 1;
+}
+
+.menu__item {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.menu__item a {
+    background-color: #EC6015;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: block;
+    color: #fff;
+    font-family: Kiwi Maru;
+    text-align: center;
+    text-decoration: none;
+    width: 10rem;
+}
+
+.menu__item a:hover {
+    background-color: #ffefcc;
+    color: black;
+}
+
+/*-------------------------------------------------------*/
+/*-----------------------------------------------------
+      メインの設定
+-------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+}
+
+.main-inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*----------------登録ボタン---------------------*/
+.btn--orange,
+a.btn--orange {
+    color: #fff;
+    background-color: #eb6100;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 5px 0 #aaaaaa;
+    transition: 0.3s;
+    font-family: Kiwi Maru;
+
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+    background-color: #ffefcc;
+    color: black;
+    transform: translateY(3px);
+    text-decoration: none;
+    box-shadow: 0 2px 0 #aaaaaa;
+}
+
+a.btn--radius {
+    border-radius: 3rem;
+}
+
+/*-----------------------------------------------*/
+/*----------------編集ボタン---------------------*/
+.edit_disable {
+    /*background-color:#71c7c8;*/
+    background-color: #a6a197;
+    color: #fff;
+    border: gray;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 5px 0 #aaaaaa;
+    transition: 0.3s;
+}
+
+.edit {
+    /*background-color:#71c7c8;*/
+    background-color: #f59e0b;
+    color: #fff;
+    border: gray;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 5px 0 #aaaaaa;
+    transition: 0.3s;
+}
+
+.edit:hover {
+    transform: translateY(3px);
+    text-decoration: none;
+    box-shadow: 0 2px 0 #aaaaaa;
+}
+
+
+/*-----------------------------------------------*/
+/*----------------戻るボタン---------------------*/
+.back-btn {
+    background-color: #615b51;
+    color: #fff;
+    border: gray;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 5px 0 #aaaaaa;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateY(3px);
+    text-decoration: none;
+    box-shadow: 0 2px 0 #696868;
+}
+/*----------------削除ボタン---------------------*/
+.delete {
+    background-color: #715494;
+    color: #fff;
+    border: gray;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 5px 0 #aaaaaa;
+    transition: 0.3s;
+}
+
+.delete:hover {
+    transform: translateY(3px);
+    text-decoration: none;
+    box-shadow: 0 2px 0 #aaaaaa;
+}
+
+/*-----------------------------------------------*/
+/*-------------------------------------------------------
+                        ジャンル一覧
+---------------------------------------------------------*/
+.genre {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+.genre-register__button {
+    text-align: right;
+}
+
+.genre table {
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+.genre th, .genre td {
+    border: 1px solid gray;
+    text-align: center;
+    padding: 1rem 0.5rem;
+
+}
+
+.genre th {
+    background-color: #71c7c8;
+    color: #fff;
+}
+
+/*-------------------------------------------------------
+                        登録画面
+---------------------------------------------------------*/
+.register-section {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+.register-section h2 {
+    font-family: Kiwi Maru;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #594A4E;
+    font-weight: bold;
+}
+
+.register-section-details {
+    width: 100%;
+    margin: 3rem auto;
+}
+
+svg {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle
+}
+
+.register-section-details_flex {
+    display: flex;
+    justify-content: center;
+    gap: 0 1rem;
+    align-items: center;
+    margin: 3rem 0;
+}
+.register-section-details_flex>img {
+    width: 252px;
+}
+.register-section-details_flex div:first-child {
+    color: #594A4E;
+    font-family: Kiwi Maru;
+    width: 6rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+}
+/*--動画登録のボタンの位置の設定--*/
+#store_add_box{
+  margin-left: 15rem;
+}
+/*-------------------------------*/
+input[type="text"] {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1rem;
+    color: #594A4E;
+    font-family: Kiwi Maru;
+    width: 250px;
+}
+
+input[type="text"]:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #71c7c8 inset;
+}
+
+input[type="time"] {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1rem;
+    color: #594A4E;
+    font-family: Kiwi Maru;
+    width: 250px;
+}
+
+input[type="time"]:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #71c7c8 inset;
+}
+
+textarea {
+    resize: vertical;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1rem;
+    color: #594A4E;
+    font-family: Kiwi Maru;
+    width: 250px;
+}
+
+textarea:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #71c7c8 inset;
+}
+
+select {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    font-size: 1rem;
+    color: #594A4E;
+    font-family: Kiwi Maru;
+    width: 250px;
+}
+
+select:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #71c7c8 inset;
+}
+
+.checkbox__flex {
+    width: 250px;
+}
+
+input[type="checkbox"] {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.photo_img {
+    width: 250px;
+}
+
+.photo_img img {
+    width: 80%;
+    box-shadow: 0 0 0 1px #ccc inset;
+}
+.photo_img video {
+    display: block;
+    width: 80%;
+    box-shadow: 0 0 0 1px #ccc inset;
+}
+
+/*-------------------------------------------------------
+                        一覧画面
+---------------------------------------------------------*/
+
+.all-view-section {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+.all-view-section h2 {
+    font-family: Kiwi Maru;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #594A4E;
+    font-weight: bold;
+}
+
+.all-view-register__button {
+    text-align: right;
+    margin: 3rem 0;
+}
+
+.all-view-article {
+    border: 1px solid #594A4E;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 0 #aaaaaa;
+
+}
+
+.all-view-colum {
+    position: relative;
+    font-family: Kiwi Maru;
+}
+
+.all-view-colum img {
+    background-color: #fff;
+    border-bottom: 1px solid #594A4E;
+}
+
+.all-view__category {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    background-color: #594A4E;
+    color: #fff;
+    padding: 0.5rem 1rem;
+}
+
+.message {
+    box-sizing: border-box;
+    width: 90%;
+    padding: 8px 19px;
+    margin: 2em auto;
+    color: #2c2c2f;
+    background: #fff;
+    border-top: solid 5px #594A4E;
+    border-bottom: solid 5px #594A4E;
+}
+
+.message p {
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+/*================================
+            カテゴリー設定　　　　　　　　　　　
+=================================*/
+.colum__box {
+    padding: 1rem;
+    background-color: #fff;
+    color: #594A4E;
+    font-family: Kiwi Maru;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+.colum__box_noflex{
+    padding: 1rem;
+    background-color: #fff;
+    color: #594A4E;
+    font-family: Kiwi Maru;
+}
+.colum__box_noflex p:nth-child(1) {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.colum__box_noflex p:nth-child(2) {
+    text-align: left;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+}
+
+.colum__box_noflex p:nth-child(3) {
+    text-align: right;
+    font-size: 1rem;
+}
+@media screen and (min-width: 768px) {
+
+    /*-----------------ヘッダー-----------------*/
+    .pc {
+        display: block;
+        padding-top: 1.5rem;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .pc-inner {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 1rem;
+    }
+
+    .pc-logo {
+        display: flex;
+        text-align: center;
+        gap: 0 10px;
+        align-items: center;
+    }
+
+    .pc-logo img {
+        width: 10rem;
+        height: 2rem;
+    }
+
+    .pc-logo a:hover {
+        line-height: 1.2rem;
+        color: #ffefcc;
+        font-family: Kiwi Maru;
+    }
+
+    .pc-list {
+        display: flex;
+        align-items: center;
+        gap: 0 1.5rem;
+    }
+
+    .pc-list a {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #594A4E;
+        font-family: Kiwi Maru;
+    }
+
+    .pc-list a:hover {
+        color: #EC6015;
+    }
+
+   /*-------------------------------------------------------
+                        一覧画面
+---------------------------------------------------------*/
+
+.all-view-section {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+.all-view__flex{
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    gap: 10px;
+    justify-content: center;
+}
+.all-view-article {
+    width: 33%;
+    box-sizing: border-box;
+
+}
+
+.colum__box p:nth-child(1) {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.colum__box p:nth-child(2) {
+    text-align: left;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+}
+
+.colum__box p:nth-child(3) {
+    text-align: right;
+    font-size: 1rem;
+}
+
+    
+}

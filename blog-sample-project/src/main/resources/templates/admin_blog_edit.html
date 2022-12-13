@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Kiwi+Maru:wght@300;400;500&display=swap">
+</head>
+
+<body>
+	<header>
+		<!--スマートフォン-->
+		<nav class="menu">
+			<div class="logo">
+				<a href="#"><img th:src="@{/images/logo.png}" alt=""></a>
+			</div>
+			<div class="menu-contents">
+				<div class="menu-inner">
+					<ul>
+
+						<li class="menu__item"><a th:href="@{/admin/category/all}">カテゴリ一覧</a></li>
+						<li class="menu__item"><a th:href="@{/admin/blog/all}">投稿記事一覧</a></li>
+						<li class="menu__item"><form th:action="@{/logout}" method="post"><a href="#" onclick="this.parentNode.submit()">ログアウト</a></form></li>
+
+					</ul>
+				</div>
+				<div class="menu-toggle_btn">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</nav>
+		<!--pc-->
+		<nav class="pc">
+			<div class="pc-inner">
+				<div class="pc-logo">
+					<a href=""><img th:src="@{/images/logo.png}" alt=""></a>
+				</div>
+				<ul class="pc-list">
+					<li class="pc-list__item"><a th:href="@{/admin/category/all}">カテゴリ一覧</a></li>
+					<li class="pc-list__item"><a th:href="@{/admin/blog/all}">投稿記事一覧</a></li>
+					<li class="pc-list__item"><form th:action="@{/logout}" method="post"><a href="#" onclick="this.parentNode.submit()">ログアウト</a></form></li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+		<main>
+			<div class="main-inner">
+				<section class="register-section">
+					<h2>記事編集画面</h2>
+					<form method="POST" th:action="@{/admin/blog/update}" enctype="multipart/form-data">
+						<div class="register-section-details">
+							<div class="register-section-details_flex">
+								<div>タイトル</div>
+								<input type="text" name="blogTitle" th:value="${blogs.blogTitle}">
+							</div>
+							<div class="register-section-details_flex">
+								<div>登録済みブログ画像</div>
+								<img th:src="@{/blog-image/{items}(items=${blogs.blogImage})}">
+							</div>
+							<div class="register-section-details_flex">
+								<div>ブログ画像</div>
+								<input type="file" name="blogImage">
+							</div>
+							<div class="register-section-details_flex">
+								<div>カテゴリー名</div>
+								<select name="categoryName" id="">
+									<option th:each="category : ${categoryList}" th:value="${category.categoryName}"
+										th:text="${category.categoryName}"
+										th:selected="${category.categoryName == blogs.categoryName}">
+									</option>
+								</select>
+							</div>
+							<div class="register-section-details_flex">
+								<div>Message</div>
+								<textarea name="message" th:text="${blogs.message}"></textarea>
+							</div>
+							<input type="hidden" name="userId" th:value="${userId}">
+							<input type="hidden" name="blogId" th:value="${blogs.blogId}">
+							<div class="register-section-details_flex">
+								<button class="edit" id="register">更新</button>
+								<button class="back-btn" onclick="history.back();" type="button">戻る</button>
+							</div>
+						</div>
+					</form>
+					<div class="register-section-details_flex">
+						<form method="post" th:action="@{/admin/blog/delete}">
+						     <input type="hidden" name="blogId" th:value="${blogs.blogId}">
+							<button class="delete" id="delete">削除</button>
+						</form>
+					</div>
+				</section>
+			</div>
+		</main>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script th:src="@{/js/common.js}"></script>
+</body>
+
+</html>
