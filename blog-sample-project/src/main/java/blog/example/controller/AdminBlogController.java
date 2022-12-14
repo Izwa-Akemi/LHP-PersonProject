@@ -24,9 +24,9 @@ import blog.example.config.WebSecurityConfig;
 import blog.example.model.entity.BlogEntity;
 import blog.example.model.entity.CategoryEntity;
 import blog.example.model.entity.UserEntity;
-import blog.example.model.service.BlogService;
-import blog.example.model.service.CategoryService;
-import blog.example.model.service.UserService;
+import blog.example.service.BlogService;
+import blog.example.service.CategoryService;
+import blog.example.service.UserService;
 import lombok.NonNull;
 
 

@@ -1,12 +1,11 @@
 package blog.example.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,12 +20,13 @@ import lombok.RequiredArgsConstructor;
 @Table(name="blog")
 public class BlogEntity {
 	public BlogEntity(String blogTitle, String fileName, String categoryName, String message, Long userId) {
-		this.blogTitle = blogTitle;
-		this.blogImage = fileName;
-		this.categoryName = categoryName;
-		this.message = message;
-		this.userId = userId;
+	this.blogTitle = blogTitle;
+	this.blogImage = fileName;
+	this.categoryName = categoryName;
+	this.message = message;
+	this.userId = userId;
 	}
+
 	@Id
 	@Column(name="blog_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,7 +39,8 @@ public class BlogEntity {
 	@NonNull
 	@Column(name="blog_image")
 	private String blogImage;
-
+	
+	@NonNull
 	@Column(name="category_Name")
 	private String categoryName;
 
@@ -50,3 +51,4 @@ public class BlogEntity {
 	@Column(name="user_Id")
 	private Long userId;
 }
+

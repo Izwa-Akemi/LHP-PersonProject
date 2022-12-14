@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import blog.example.model.entity.BlogEntity;
 import blog.example.model.entity.CategoryEntity;
-import blog.example.model.service.BlogService;
-import blog.example.model.service.CategoryService;
+import blog.example.service.BlogService;
+import blog.example.service.CategoryService;
+
 
 @Controller
 @RequestMapping("/blog/")

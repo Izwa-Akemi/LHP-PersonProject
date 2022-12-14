@@ -2,15 +2,20 @@ package blog.example.model.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import blog.example.model.entity.BlogEntity;
+import jakarta.transaction.Transactional;
 
 
 
+
+
+@Repository
 public interface BlogDao extends JpaRepository<BlogEntity, Long> { 
 	//ブログの内容を保存
 	BlogEntity save(BlogEntity blogEntity);

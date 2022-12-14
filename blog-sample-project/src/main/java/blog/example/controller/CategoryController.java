@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import blog.example.model.entity.CategoryEntity;
-import blog.example.model.service.CategoryService;
+import blog.example.service.CategoryService;
+
+
 
 
 
