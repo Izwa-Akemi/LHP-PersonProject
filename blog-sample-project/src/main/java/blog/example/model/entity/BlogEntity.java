@@ -20,11 +20,11 @@ import lombok.RequiredArgsConstructor;
 @Table(name="blog")
 public class BlogEntity {
 	public BlogEntity(String blogTitle, String fileName, String categoryName, String message, Long userId) {
-	this.blogTitle = blogTitle;
-	this.blogImage = fileName;
-	this.categoryName = categoryName;
-	this.message = message;
-	this.userId = userId;
+		this.blogTitle = blogTitle;
+		this.blogImage = fileName;
+		this.categoryName = categoryName;
+		this.message = message;
+		this.userId = userId;
 	}
 
 	@Id
@@ -39,7 +39,7 @@ public class BlogEntity {
 	@NonNull
 	@Column(name="blog_image")
 	private String blogImage;
-	
+
 	@NonNull
 	@Column(name="category_Name")
 	private String categoryName;

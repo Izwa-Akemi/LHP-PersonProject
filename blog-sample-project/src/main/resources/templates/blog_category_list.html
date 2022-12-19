@@ -13,14 +13,15 @@
 <body>
 	<header class="media__header">
 		<div class="header__logo">
-			 <a th:href="@{/blog/}">
+			<a th:href="@{/blog/}">
 				<img th:src="@{\images\logo.png}">
 			</a>
 		</div>
 		<nav class="header__nav pc">
 			<ul class="flex__item">
 				<li class="nav__list" th:each="category : ${categoryList}">
-						<a th:href="@{/blog/category/list/{categoryName}(categoryName=${category.categoryName})}" class="nav__link"　th:text="${category.categoryName}"></a>
+					<a th:href="@{/blog/category/list/{categoryName}(categoryName=${category.categoryName})}"
+						class="nav__link" 　th:text="${category.categoryName}"></a>
 				</li>
 			</ul>
 		</nav>
@@ -37,12 +38,13 @@
 			<div class="flex__item">
 				<div class="article-wrap">
 					<div class="flex__item">
-						<a class="article__card" th:href="@{/blog/detail/{blogId}(blogId=${blog.blogId})}" th:each="blog:${blogList}">
+						<a class="article__card" th:href="@{/blog/detail/{blogId}(blogId=${blog.blogId})}"
+							th:each="blog:${blogList}">
 							<div class="article__card-eyecatch">
-							   <img th:src="@{/blog-image/{items}(items=${blog.blogImage})}">
+								<img th:src="@{/blog-image/{items}(items=${blog.blogImage})}">
 							</div>
 							<span class="article__card-cat" th:text=" ${blog.categoryName}">
-								</span>
+							</span>
 
 							<div class="article__card-content">
 								<h3 class="article__card-content-ttl" th:text=" ${blog.blogTitle}"></h3>
@@ -54,7 +56,11 @@
 					<div class="category">
 						<h2 class="category__ttl">Category</h2>
 						<ul>
-							<li class="category__list" th:each="category : ${categoryList}">	<li class="category__list" th:each="category : ${categoryList}"><a th:href="@{/blog/category/list/{categoryName}(categoryName=${category.categoryName})}" class="category__link"　th:text="${category.categoryName}"></a></li></li>
+							<li class="category__list" th:each="category : ${categoryList}">
+								<a th:href="@{/blog/category/list/{categoryName}(categoryName=${category.categoryName})}"
+									class="category__link" 　th:text="${category.categoryName}">
+								</a>
+							</li>
 						</ul>
 					</div>
 				</aside>

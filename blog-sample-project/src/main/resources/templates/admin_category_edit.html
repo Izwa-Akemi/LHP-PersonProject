@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <header>
+  	<header>
 		<!--スマートフォン-->
 		<nav class="menu">
 			<div class="logo">
@@ -29,7 +29,10 @@
 
 						<li class="menu__item"><a th:href="@{/admin/category/all}">カテゴリ一覧</a></li>
 						<li class="menu__item"><a th:href="@{/admin/blog/all}">投稿記事一覧</a></li>
-						<li class="menu__item"><form th:action="@{/logout}" method="post"><a href="#" onclick="this.parentNode.submit()">ログアウト</a></form></li>
+						<li class="menu__item">
+							<form th:action="@{/logout}" method="post"><a href="#"
+									onclick="this.parentNode.submit()">ログアウト</a></form>
+						</li>
 
 					</ul>
 				</div>
@@ -47,10 +50,14 @@
 					<a href=""><img th:src="@{/images/logo.png}" alt=""></a>
 				</div>
 				<ul class="pc-list">
+					<li class="pc-list__item" th:text=${userName}></li>
 					<li class="pc-list__item"><a th:href="@{/admin/category/all}">カテゴリ一覧</a></li>
 					<li class="pc-list__item"><a th:href="@{/admin/blog/all}">投稿記事一覧</a></li>
-					<li class="pc-list__item"><form th:action="@{/logout}" method="post"><a href="#" onclick="this.parentNode.submit()">ログアウト</a></form></li>
-					
+					<li class="pc-list__item">
+						<form th:action="@{/logout}" method="post"><a href="#"
+								onclick="this.parentNode.submit()">ログアウト</a></form>
+					</li>
+
 				</ul>
 			</div>
 		</nav>
