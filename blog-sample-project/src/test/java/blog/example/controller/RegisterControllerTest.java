@@ -4,6 +4,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import blog.example.model.service.UserService;
+import blog.example.service.UserService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -39,11 +40,11 @@ public class RegisterControllerTest {
 	//ユーザー登録ページを正しく取得出来た場合
 	public void testGetRegisterPage_Succeed() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders
-				.get("/register");
+				.get("/admin/register");
 
 		mockMvc.perform(request)
 		//register.htmlを表示
-		.andExpect(view().name("register.html"));
+		.andExpect(view().name("admin_register.html"));
 		//「error」パラメーターが存在しないことを宣言
 	}
 
@@ -51,7 +52,7 @@ public class RegisterControllerTest {
 	//ユーザー情報が正しく入力保存できた場合は、ログイン画面に遷移させる
 	public void testRegister_NewUsername_Succeed() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders
-				.post("/register")
+				.post("/admin/register")
 				//ユーザー名としてBobを受け取る
 				.param("userName", "Bob")
 				//パスワードとしてBob54321を受け取る
@@ -61,14 +62,14 @@ public class RegisterControllerTest {
 
 		mockMvc.perform(request)
 		//login.htmlを表示
-		.andExpect(view().name("login.html"));
+		.andExpect(redirectedUrl("/admin/login"));
 	}
 
 	@Test
 	//すでにユーザーが存在していた場合つまりユーザー登録に失敗した場合は、登録画面へ遷移
 	public void testLogin_ExistingUsername_Fail() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders
-				.post("/register")
+				.post("/admin/register")
 				//ユーザー名としてBobを受け取る
 				.param("userName", "Alice")
 				//パスワードとしてBob54321を受け取る
@@ -78,7 +79,6 @@ public class RegisterControllerTest {
 
 		mockMvc.perform(request)
 		//register.htmlを表示
-		.andExpect(view().name("register.html"));
+		.andExpect(view().name("admin_register.html"));
 	}
 }
-

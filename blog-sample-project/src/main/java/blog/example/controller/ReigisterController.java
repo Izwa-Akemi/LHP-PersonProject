@@ -6,14 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
 import blog.example.service.UserService;
 
-
-
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/admin")
 public class ReigisterController {
 	@Autowired
 	private UserService accountService;

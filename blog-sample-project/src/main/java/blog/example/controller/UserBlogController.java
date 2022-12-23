@@ -16,7 +16,7 @@ import blog.example.service.CategoryService;
 
 
 @Controller
-@RequestMapping("/blog/")
+@RequestMapping("/blog")
 public class UserBlogController {
 	/**
 	 * blogテーブルを操作するための

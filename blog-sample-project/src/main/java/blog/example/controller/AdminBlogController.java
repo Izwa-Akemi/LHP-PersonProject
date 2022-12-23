@@ -30,7 +30,7 @@ import blog.example.service.UserService;
 
 
 @Controller
-@RequestMapping("/admin/blog/")
+@RequestMapping("/admin/blog")
 public class AdminBlogController {
 	/**
 	 * accountテーブルを操作するための

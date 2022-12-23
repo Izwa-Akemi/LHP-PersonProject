@@ -53,6 +53,11 @@ public class WebSecurityConfig  {
 				).toList();
 			
 		manager = new InMemoryUserDetailsManager(users);
+		manager.createUser(User.withDefaultPasswordEncoder()
+				.username("alice@test.com")
+				.password("Alice123456")
+				.roles("USER")
+				.build());
 		return manager;
 	}
 

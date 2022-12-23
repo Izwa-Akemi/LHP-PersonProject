@@ -23,7 +23,7 @@ import blog.example.service.UserService;
 
 
 @Controller
-@RequestMapping("/admin/category/")
+@RequestMapping("/admin/category")
 public class CategoryController {
 
 	/**
