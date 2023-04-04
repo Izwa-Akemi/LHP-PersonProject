@@ -41,7 +41,7 @@ public class BlogEntity {
 	private String blogImage;
 
 	@NonNull
-	@Column(name="category_Name")
+	@Column(name="category_ame")
 	private String categoryName;
 
 	@NonNull
